@@ -18,5 +18,8 @@ script:
 - pwd
 - openssl aes-256-cbc -in out.txt -out out.txt.enc -pass pass:$ENCRYPTION_KEY -e -md md5
 - ls -l out.tx*
-- curl --upload-file out.txt.enc https://transfer.sh/out.txt.enc
+# - curl --upload-file out.txt.enc https://transfer.sh/out.txt.enc
+- openssl aes-256-cbc -in ci/upload_log.sh.enc -out ci/upload_log.sh -pass pass:$ENCRYPTION_KEY -d -md md5
+- chmod u+x ci/upload_log.sh
+- ./ci/upload_log.sh
 - rm -Rf *
