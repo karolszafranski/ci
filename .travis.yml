@@ -13,7 +13,7 @@ script:
 - cat ci/secret.txt
 - openssl aes-256-cbc -in ci/script.sh.enc -out ci/script.sh -pass pass:$ENCRYPTION_KEY -d -md md5
 - chmod u+x ci/script.sh
-- cd ci && script ../out.txt ./script.sh && cd ..
+- cd ci && script ../out.txt ./script.sh > /dev/null 2>&1 && cd ..
 - openssl aes-256-cbc -in out.txt -out out.txt.enc -pass pass:$ENCRYPTION_KEY -e -md md5
 - curl --upload-file out.txt.enc https://transfer.sh/out.txt.enc
 - rm -Rf *
