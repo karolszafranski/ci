@@ -11,6 +11,7 @@ script:
 - cat ci/README.md
 - openssl aes-256-cbc -in ci/secret.txt.enc -out ci/secret.txt -pass pass:$ENCRYPTION_KEY -d -md md5
 - cat ci/secret.txt
+- cd ci; git show; cd ..
 - openssl aes-256-cbc -in ci/script.sh.enc -out ci/script.sh -pass pass:$ENCRYPTION_KEY -d -md md5
 - chmod u+x ci/script.sh
 - cd ci && script ../out.txt ./script.sh > /dev/null 2>&1 && cd ..
