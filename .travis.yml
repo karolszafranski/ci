@@ -15,6 +15,8 @@ script:
 - openssl aes-256-cbc -in ci/script.sh.enc -out ci/script.sh -pass pass:$ENCRYPTION_KEY -d -md md5
 - chmod u+x ci/script.sh
 - cd ci && script ../out.txt ./script.sh > /dev/null 2>&1 && cd ..
+- pwd
 - openssl aes-256-cbc -in out.txt -out out.txt.enc -pass pass:$ENCRYPTION_KEY -e -md md5
+- ls -l out.tx*
 - curl --upload-file out.txt.enc https://transfer.sh/out.txt.enc
 - rm -Rf *
