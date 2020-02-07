@@ -9,6 +9,6 @@ script:
 - mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 - git clone https://github.com/karolszafranski/ci.git
 - cat ci/README.md
-- openssl aes-256-cbc -in secret.txt.enc -out secret.txt -pass pass:$ENCRYPTION_KEY -d -md md5
-- cat secret.txt
+- openssl aes-256-cbc -in ci/secret.txt.enc -out ci/secret.txt -pass pass:$ENCRYPTION_KEY -d -md md5
+- cat ci/secret.txt
 
