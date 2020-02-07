@@ -6,6 +6,7 @@ env:
     secure: OrutHUlF5ma8jlSpC7GBociorw8xg2CtKO+MPSm0QM1ZKTMxYaNhDRqF6ENjWNlcYIe3y6ruN3TmlVDGepBwGmGC+k4c4nMwWxI7dvqWk0PQ5yL4YoSQj6IsKsccv+7unHG4Y6SdMLqWaWbaXZtWJ3MCHijY0o+aBTkG1XYtyC5i+YVo3eBF6uFUruU9hv2wWj4ypt0Kq13eMsQ/8vBQapVR9NvV4Bl4Oom91CYyls1RXRwDssBhyYeDQjb6fhocEDh2H7Yk6cCEUhMevjnKXZ9n5fKFVoS3q5MOqF6fi/rbWuPOJ0jOrPT/8mFt7OTeaecJFg5Co1PBAPmAPRfKqScNW0QdArHkgRW91lRFuESadAp8fZ0i/CMLt/lFTY5PU9lJ+9Kt1qnnG5qCwWKXN1oxrIfAgA09Tau3vtCG9ZzfOTkoOA+UqP87Wd6aQwKVfICJqKyG25KWuWuV06yqTlM4YOZ9gEIbOSe//gsVcipU7gp5+/L9LqCOwfLep78ha1ZUcloUmYGCkEkNysmj5n0WA5Tn3iv1ynqCMNCm0g+INxHyAF3zxgk4060RC0/22Kqa3tpRS6mQm+phsjqVodghSCqMB5LWRFa7WO4tS8rWXFcfsMA2TaW+EGHKa/XR9u+a1RdCY0bPB6k6ajpwbwXTdBQP1eFXm+qDnUbiNOM=
 
 script:
+- xcodebuild -showsdks
 - BASE_DIR=$(pwd)
 - mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 - git clone https://github.com/karolszafranski/ci.git
